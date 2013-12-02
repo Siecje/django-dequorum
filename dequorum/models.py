@@ -1,4 +1,4 @@
-
+from django.conf import settings
 from django.db import models
 from django.utils.functional import lazy, SimpleLazyObject
 
@@ -61,10 +61,10 @@ class Post(TimestampedMixin):
 ##
 
 class Profile(models.Model):
-    user = models.OneToOneField('auth.User')
+    user = models.OneToOneField(settings.AUTH_USER_MODEL)
     nickname = fields.TitleField(blank=True)
 
-    avatar = models.ImageField(blank=True)
+    avatar = models.ImageField(blank=True, upload_to='avatars')
 
 ##
 ## Permission models
