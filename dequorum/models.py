@@ -24,6 +24,9 @@ class TimestampedMixin(models.Model):
 class Category(models.Model):
     title = fields.TitleField()
 
+    class Meta:
+        verbose_name_plural = 'categories'
+
     def __unicode__(self):
         return self.title
 
