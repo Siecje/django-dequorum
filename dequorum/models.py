@@ -14,9 +14,9 @@ class TimestampedMixin(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.pk:
-            created = datetime.now()
-        modified = datetime.now()
-        return super(TimestampedMixin, self).super(*args, **kwargs)
+            self.created = datetime.now()
+        self.modified = datetime.now()
+        return super(TimestampedMixin, self).save(*args, **kwargs)
 
     class Meta:
         abstract = True
